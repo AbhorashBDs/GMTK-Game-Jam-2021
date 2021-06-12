@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1717080285
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 0.9371229, b: 0, a: 1}
@@ -139,4 +139,4 @@ MonoBehaviour:
   drag: 0
   boumiereLeft: {fileID: 8054068379228509136, guid: b90de76fb7f6183458f86749290be292, type: 3}
   boumiereRight: {fileID: 4772276657042342011, guid: 9adb54a19acdd5e4dbdcafeee3514974, type: 3}
-  gapBetweenBoumiere: 1.3
+  gapBetweenBoumiere: 0.7
