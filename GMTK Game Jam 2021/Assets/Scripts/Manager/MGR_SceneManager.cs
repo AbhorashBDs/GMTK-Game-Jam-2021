@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MGR_SceneManager : MonoBehaviour
+{
+
+    private static MGR_SceneManager p_instance = null;
+    public static MGR_SceneManager Instance { get { return p_instance; } }
+
+    [SerializeField] public List<string> listScene;
+
+    void Awake()
+    {
+        //Check if instance already exists
+        if (p_instance == null)
+            //if not, set instance to this
+            p_instance = this;
+        //If instance already exists and it's not this:
+        else if (p_instance != this)
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        listScene = new List<string>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
+    public void LoadScene(string __nom_scene)
+    {
+        SceneManager.LoadScene(__nom_scene);
+    }
+
+    public void LoadNextScene(int index)
+    {
+        if ((index + 1) < SceneManager.sceneCountInBuildSettings)
+            Instance.LoadScene(index + 1);
+        else
+            Instance.LoadScene(0);
+    }
+
+    public int GetCurrentSceneIndex()
+    {
+        //Debug.Log("Current scene index : " + SceneManager.GetActiveScene().buildIndex);
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+}
